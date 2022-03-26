@@ -1,20 +1,23 @@
 package com.example.hellorobo;
 
+import android.app.Application;
+import androidx.test.core.app.ApplicationProvider;
+import com.google.common.truth.Truth;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
-
-import static org.junit.Assert.*;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class ExampleUnitTest {
+@RunWith(RobolectricTestRunner.class)
+public class RoboTest {
 
   @Test
   public void addition_isCorrect() {
-    assertEquals(4, 2 + 2);
+    Truth.assertThat(ApplicationProvider.<Application>getApplicationContext().getPackageName()).isEqualTo("com.example.hellorobo");
+
   }
 }
